@@ -1,0 +1,9 @@
+`include "dff.v"
+module top (
+    input clka, clkb, output qa, qb
+);
+    wire tmp;
+    dff U1(.clk(clka), .rst_n(tmp), .din(1'b1), .q(qa));
+    dff U2(.clk(clkb), .rst_n(tmp), .din(1'b1), .q(qb));
+    assign tmp  = !(qa&qb);
+endmodule
